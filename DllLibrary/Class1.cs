@@ -34,8 +34,26 @@ namespace DllLibrary
         }
     }
 
-    public class Player
+    public class Player : IComparable<Player>
     { 
+        public string Name { get; set; }
+        public string Description { get; set; }
+
+        public Player(string name, string description)
+        {
+            Name = name;
+            Description = description;
+        }
+
+        public void Show()
+        {
+            Console.WriteLine($"- Имя игрока: {Name}\n"+ $"- Описание: {Description}\n");
+        }
+
+        public int CompareTo(Player other)
+        {
+            return Name.CompareTo(other.Name);
+        }
 
     }
 }
